@@ -5,9 +5,14 @@
  */
 
 import Handlebars from 'handlebars';
+import nodemailer from 'nodemailer';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import fs from 'fs';
+
+// TODO: Make these configurable
+const FROM = '"Community Reporting" <report@localhost>';
+const SUBJECT = 'Community Incident Report'
 
 function loadTemplate(name) {
   const base = fileURLToPath(import.meta.url);
@@ -17,7 +22,33 @@ function loadTemplate(name) {
 
 const emailTemplate = loadTemplate('email');
 
+const transporter = nodemailer.createTransport({
+    host: 'smtp',
+    port: 25,
+    secure: false,
+    tls: { rejectUnauthorized: false },
+    debug: true,
+});
+
 export const sendReport = ({ comment, name, email, resource }) => {
-  // TODO
-  console.log(`sending to ${resource}:`, emailTemplate({ comment, name, email }));
+  const body = emailTemplate({ comment, name, email });
+  transporter.verify(error => {
+    if (error) {
+      return console.error(error);
+    }
+
+    const mail = {
+      from: FROM,
+      to: resource,
+      subject: SUBJECT,
+      text: body
+    };
+
+    transporter.sendMail(mail, (error, info) => {
+      if (error) {
+        return console.error(error);
+      }
+      console.log('Report sent: %s', info.messageId);
+    });
+});
 };

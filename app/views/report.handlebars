@@ -21,7 +21,7 @@
       <select required="true" name="resource" id="resource">
         <option disabled selected hidden value="">Report to</option>
         {{#each resources}}
-          <option {{#unless this.available}}disabled{{/unless}} value={{this.email}}>
+          <option {{#if this.tired}}disabled{{/if}} value={{this.email}}>
             {{this.name}}
           </option>
         {{/each}}

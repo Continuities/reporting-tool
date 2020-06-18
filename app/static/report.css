@@ -12,10 +12,6 @@
   resize: vertical;
 }
 
-input, select, textarea, button {
-  padding: 10px 20px;
-}
-
 #resource {
   flex-grow: 1;
 }
@@ -43,22 +39,4 @@ input, select, textarea, button {
 
 #contact > input {
   flex-grow: 1;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-}
-
-.container > :first-child {
-  margin: 0 0 20px;
-}
-
-@media (min-width: 600px) {
-  .container {
-    flex-direction: row
-  }
-  .container > :first-child {
-    margin: 0 20px 0 0;
-  }
 }

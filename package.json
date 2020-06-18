@@ -12,6 +12,7 @@
     "down": "docker-compose down",
     "restart": "docker-compose restart",
     "logs": "docker-compose logs -f",
+    "passwd": "sudo htpasswd -c server/admin.htpasswd admin",
     "connect:app": "docker exec -ti reporting-tool.app /bin/bash",
     "connect:db": "docker exec -ti reporting-tool.mongo mongo",
     "connect:server": "docker exec -ti reporting-tool.server /bin/bash"

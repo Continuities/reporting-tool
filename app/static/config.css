@@ -1,0 +1,23 @@
+form {
+  margin: 40px 20px;
+}
+
+.resource-row > input {
+  flex-grow: 1;
+}
+
+.resource-row {
+  margin: 20px 0;
+}
+
+#save {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  background: #2ECC40;
+  border: none;
+  width: 60px;
+  height: 60px;
+  font-size: 20px;
+}

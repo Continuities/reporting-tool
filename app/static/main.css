@@ -19,3 +19,25 @@ main {
 section {
   margin: 40px 20px;
 }
+
+input, select, textarea, button {
+  padding: 10px 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container > :first-child {
+  margin: 0 0 5px;
+}
+
+@media (min-width: 600px) {
+  .container {
+    flex-direction: row
+  }
+  .container > :first-child {
+    margin: 0 5px 0 0;
+  }
+}

@@ -1,0 +1,19 @@
+<template id='resource-row-tmpl'>
+  {{> resource-row index='{INDEX}'}}
+</template>
+
+<form method='POST'>
+  <div id='resources'>
+    Support Resources:
+    {{#each resources}}
+      {{> resource-row index=@index }}
+    {{else}}
+      {{> resource-row index=0}}
+    {{/each}}
+  </div>
+  <button type='button' id='add-resource'>Add</button>
+
+  <button type='submit' id='save'>💾</button>
+</form>
+
+<script src='config.js'></script>
