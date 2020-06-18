@@ -1,0 +1,64 @@
+#input {
+  display: flex;
+  flex-direction: column;
+}
+
+#input > * {
+  margin-bottom: 20px;
+}
+
+#comment {
+  min-height: 200px;
+  resize: vertical;
+}
+
+input, select, textarea, button {
+  padding: 10px 20px;
+}
+
+#resource {
+  flex-grow: 1;
+}
+
+#anonymous {
+  display: inline;
+}
+
+#resource:invalid { 
+  color: gray; 
+}
+
+#anonymous:checked ~ #contact {
+  display: none
+}
+
+#anonymous:not(:checked) ~ label {
+  font-style: italic;
+  color: gray;
+}
+
+#contact {
+  margin-top: 20px;
+}
+
+#contact > input {
+  flex-grow: 1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container > :first-child {
+  margin: 0 0 20px;
+}
+
+@media (min-width: 600px) {
+  .container {
+    flex-direction: row
+  }
+  .container > :first-child {
+    margin: 0 20px 0 0;
+  }
+}

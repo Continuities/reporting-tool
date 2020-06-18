@@ -1,0 +1,21 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+section {
+  margin: 40px 20px;
+}

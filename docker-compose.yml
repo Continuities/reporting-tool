@@ -1,0 +1,28 @@
+version: "3"
+
+volumes:
+  data-volume:
+
+services:
+
+  server:
+    container_name: reporting-tool.server
+    restart: always
+    build: ./server
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+
+  app:
+    container_name: reporting-tool.app
+    restart: always
+    build: ./app
+    depends_on:
+      - mongo
+  
+  mongo:
+    container_name: reporting-tool.mongo
+    image: mongo
+    volumes:
+      - data-volume:/data/db
